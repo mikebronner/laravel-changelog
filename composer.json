@@ -1,0 +1,32 @@
+{
+    "name": "genealabs/laravel-changelog",
+    "description": "A Laravel Nova tool.",
+    "keywords": [
+        "laravel",
+        "nova"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0",
+        "illuminate/filesystem": "5.8.*",
+        "jenssegers/model": "^1.2",
+        "yansongda/laravel-parsedown": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "GeneaLabs\\LaravelChangelog\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "GeneaLabs\\LaravelChangelog\\Providers\\Tool"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
