@@ -1,7 +1,7 @@
 <?php namespace GeneaLabs\LaravelChangelog;
 
-use Jenssegers\Model\Model;
 use Illuminate\Support\Collection;
+use Jenssegers\Model\Model;
 
 class Changelog extends Model
 {
