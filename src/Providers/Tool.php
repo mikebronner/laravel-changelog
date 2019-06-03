@@ -34,12 +34,11 @@ class Tool extends ServiceProvider
     protected function routes()
     {
         $namespace = 'GeneaLabs\LaravelChangelog\Http\Controllers';
-        // if ($this->app->routesAreCached()) {
-        //     return;
-        // }
+        if ($this->app->routesAreCached()) {
+            return;
+        }
 
-        // Route::middleware(['nova', Authorize::class])
-        Route::middleware([])
+        Route::middleware(['nova', Authorize::class])
             ->prefix('genealabs/laravel-changelog/api')
             ->namespace($namespace . "\Api")
             ->group(__DIR__ . '/../../routes/api.php');
