@@ -38,7 +38,8 @@ class Tool extends ServiceProvider
             return;
         }
 
-        Route::middleware(['nova', Authorize::class])
+        // Route::middleware(['nova', Authorize::class])
+        Route::middleware(['nova'])
             ->prefix('genealabs/laravel-changelog/api')
             ->namespace($namespace . "\Api")
             ->group(__DIR__ . '/../../routes/api.php');
