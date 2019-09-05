@@ -7,10 +7,13 @@
     ],
     "license": "MIT",
     "require": {
-        "php": ">=7.1.0",
-        "illuminate/filesystem": "5.8.*",
+        "illuminate/filesystem": "^6.0",
+        "illuminate/support": "^6.0",
         "jenssegers/model": "^1.2",
-        "yansongda/laravel-parsedown": "^1.1"
+        "yansongda/laravel-parsedown": "*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^3.9"
     },
     "autoload": {
         "psr-4": {
