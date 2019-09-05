@@ -7,13 +7,13 @@
     ],
     "license": "MIT",
     "require": {
-        "illuminate/filesystem": "5.8 - 6.0",
-        "illuminate/support": "5.8 - 6.0",
-        "jenssegers/model": "*",
+        "illuminate/filesystem": "^6.0",
+        "illuminate/support": "^6.0",
+        "jenssegers/model": "^1.2",
         "yansongda/laravel-parsedown": "*"
     },
     "require-dev": {
-        "orchestra/testbench": "3.9.x-dev@dev"
+        "orchestra/testbench": "^3.9"
     },
     "autoload": {
         "psr-4": {
