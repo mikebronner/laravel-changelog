@@ -1,56 +1,41 @@
-<?php namespace GeneaLabs\LaravelChangelog\Providers;
+<?php
 
-use GeneaLabs\LaravelChangelog\Http\Middleware\Authorize;
-use Illuminate\Support\Facades\Route;
+namespace GeneaLabs\LaravelChangelog\Providers;
+
 use Illuminate\Support\ServiceProvider;
-use Laravel\Nova\Events\ServingNova;
-use Laravel\Nova\Nova;
 
 class Tool extends ServiceProvider
 {
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
+    public function boot() : void
     {
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'laravel-changelog');
 
         $this->app->booted(function () {
             $this->routes();
         });
-
-        Nova::serving(function (ServingNova $event) {
-            //
-        });
     }
 
-    /**
-     * Register the tool's routes.
-     *
-     * @return void
-     */
-    protected function routes()
+    protected function routes() : void
     {
         $namespace = 'GeneaLabs\LaravelChangelog\Http\Controllers';
+
         if ($this->app->routesAreCached()) {
             return;
         }
 
-        // Route::middleware(['nova', Authorize::class])
-        Route::middleware(['nova'])
+        app("router")
+            ->middleware(['nova'])
             ->prefix('genealabs/laravel-changelog/api')
             ->namespace($namespace . "\Api")
             ->group(__DIR__ . '/../../routes/api.php');
+
+        app("router")
+            ->middleware(['web'])
+            ->namespace($namespace)
+            ->group(__DIR__ . '/../../routes/web.php');
     }
 
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
+    public function register() : void
     {
         //
     }
