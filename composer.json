@@ -13,8 +13,8 @@
         }
     ],
     "require": {
-        "illuminate/filesystem": "^7.0",
-        "illuminate/support": "^7.0",
+        "illuminate/filesystem": "^6.0|^7.0",
+        "illuminate/support": "^6.0|^7.0",
         "jenssegers/model": "dev-master@dev",
         "yansongda/laravel-parsedown": "^1.2"
     },
