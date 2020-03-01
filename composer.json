@@ -10,17 +10,13 @@
         {
             "type": "vcs",
             "url": "https://github.com/GeneaLabs/model"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/GeneaLabs/laravel-parsedown"
         }
     ],
     "require": {
         "illuminate/filesystem": "^7.0",
         "illuminate/support": "^7.0",
         "jenssegers/model": "dev-master@dev",
-        "yansongda/laravel-parsedown": "dev-master@dev"
+        "yansongda/laravel-parsedown": "^1.2"
     },
     "require-dev": {
         "orchestra/testbench": "^5.0"
