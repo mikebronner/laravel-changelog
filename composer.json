@@ -6,16 +6,10 @@
         "nova"
     ],
     "license": "MIT",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/GeneaLabs/model"
-        }
-    ],
     "require": {
-        "illuminate/filesystem": "^6.0|^7.0",
-        "illuminate/support": "^6.0|^7.0",
-        "jenssegers/model": "dev-master@dev",
+        "illuminate/filesystem": "^7.0",
+        "illuminate/support": "^7.0",
+        "jenssegers/model": "^1.3",
         "yansongda/laravel-parsedown": "^1.2"
     },
     "require-dev": {
