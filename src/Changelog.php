@@ -51,7 +51,9 @@ class Changelog extends Model
         return $this
             ->parseChangelog()
             ->sort(function ($entry1, $entry2) {
-                return version_compare($entry1->version, $entry2->version);
+                return version_compare($entry1->version, $entry2->version, ">")
+                    ? -1
+                    : 1;
             })
             ->values();
     }
