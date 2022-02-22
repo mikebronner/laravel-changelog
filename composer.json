@@ -7,9 +7,9 @@
     ],
     "license": "MIT",
     "require": {
-        "illuminate/filesystem": "^8.0",
-        "illuminate/support": "^8.0",
-        "jenssegers/model": "^1.4",
+        "illuminate/filesystem": "^9.0",
+        "illuminate/support": "^9.0",
+        "jenssegers/model": "^1.5",
         "parsedown/laravel": "^1.2"
     },
     "autoload": {
