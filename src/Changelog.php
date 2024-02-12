@@ -1,7 +1,9 @@
 <?php namespace GeneaLabs\LaravelChangelog;
 
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\App;
 use Jenssegers\Model\Model;
+use Spatie\LaravelMarkdown\MarkdownRenderer;
 
 class Changelog extends Model
 {
@@ -30,7 +32,7 @@ class Changelog extends Model
                 $entry = new Entry;
                 $entry->date = $matches[2];
                 $entry->version = $matches[1];
-                $entry->details = parsedown($matches[3]);
+                $entry->details = App::make(MarkdownRenderer::class)->toHtml($matches[3]);
 
                 return $entry;
             });

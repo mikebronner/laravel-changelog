@@ -10,7 +10,7 @@
         "illuminate/filesystem": "^10.0",
         "illuminate/support": "^10.0",
         "jenssegers/model": "^1.5",
-        "parsedown/laravel": "^1.2"
+        "spatie/laravel-markdown": "^2.4"
     },
     "autoload": {
         "psr-4": {
