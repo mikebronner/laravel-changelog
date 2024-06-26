@@ -2,19 +2,28 @@
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Str;
 use Jenssegers\Model\Model;
 use Spatie\LaravelMarkdown\MarkdownRenderer;
 
 class Changelog extends Model
 {
+    protected string $fileName = "CHANGELOG.md";
+
     protected function getChangelog() : string
     {
-        // TODO: make filename a configuration variable
         $changelog = collect(scandir(base_path()))
-            ->filter(function ($fileName) {
-                return strtolower($fileName) === "changelog.md";
+            ->reject(function ($path): bool {
+                return is_dir($path);
+            })
+            ->filter(function ($existingFileName): bool {
+                return Str::lower($existingFileName) === Str::lower($this->fileName);
             })
             ->first();
+
+        if (! $changelog) {
+            return "";
+        }
 
         return file_get_contents(base_path($changelog));
     }
@@ -26,13 +35,19 @@ class Changelog extends Model
         $versions->shift();
 
         return $versions
-            ->map(function ($entry) {
+            ->reject(function ($entry): bool {
+                return Str::startsWith($entry, "Unreleased");
+            })
+            ->map(function ($entry): Entry {
                 $matches = [];
                 preg_match("/\[(.*?)\].*?(\d{4}-\d{2}-\d{2})?\n(.*)?/s", $entry, $matches);
                 $entry = new Entry;
-                $entry->date = $matches[2];
-                $entry->version = $matches[1];
-                $entry->details = App::make(MarkdownRenderer::class)->toHtml($matches[3]);
+                $entry->date = data_get($matches, 2)
+                    ?? "";
+                $entry->version = data_get($matches, 1)
+                    ?? "";
+                $entry->details = App::make(MarkdownRenderer::class)
+                    ->toHtml(data_get($matches, 3) ?? "");
 
                 return $entry;
             });
@@ -46,6 +61,13 @@ class Changelog extends Model
                 return version_compare($entry->version, $version, "==");
             })
             ->first();
+    }
+
+    public function load(?string $filename = "CHANGELOG.md"): self
+    {
+        $this->fileName = $filename;
+
+        return $this;
     }
 
     public function getEntriesAttribute() : Collection
