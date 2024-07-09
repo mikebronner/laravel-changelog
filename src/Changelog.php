@@ -1,10 +1,12 @@
-<?php namespace GeneaLabs\LaravelChangelog;
+<?php
+
+declare(strict_types=1);
+
+namespace GeneaLabs\LaravelChangelog;
 
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 use Jenssegers\Model\Model;
-use Spatie\LaravelMarkdown\MarkdownRenderer;
 
 class Changelog extends Model
 {
@@ -46,8 +48,7 @@ class Changelog extends Model
                     ?? "";
                 $entry->version = data_get($matches, 1)
                     ?? "";
-                $entry->details = App::make(MarkdownRenderer::class)
-                    ->toHtml(data_get($matches, 3) ?? "");
+                $entry->details = Str::markdown(data_get($matches, 3) ?? "");
 
                 return $entry;
             });
