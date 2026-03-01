@@ -7,9 +7,9 @@
     ],
     "license": "MIT",
     "require": {
-        "illuminate/filesystem": "^10.0|^11.0",
-        "illuminate/support": "^10.0|^11.0",
-        "jenssegers/model": "^1.5",
+        "php": "^8.2",
+        "illuminate/filesystem": "^10.0|^11.0|^12.0|^13.0",
+        "illuminate/support": "^10.0|^11.0|^12.0|^13.0",
         "spatie/laravel-markdown": "^2.4"
     },
     "autoload": {
@@ -28,5 +28,9 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "require-dev": {
+        "orchestra/testbench": "^8.0|^9.0|^10.0|^11.0",
+        "pestphp/pest": "^2.0|^3.0"
+    }
 }
