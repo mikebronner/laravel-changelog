@@ -6,7 +6,7 @@ namespace GeneaLabs\LaravelChangelog;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Jenssegers\Model\Model;
+
 
 class Changelog extends Model
 {
