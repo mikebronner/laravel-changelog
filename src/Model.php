@@ -12,9 +12,9 @@ use JsonSerializable;
 
 abstract class Model implements ArrayAccess, Arrayable, Jsonable, JsonSerializable
 {
-    protected array $attributes = [];
+    protected $attributes = [];
 
-    protected array $fillable = [];
+    protected $fillable = [];
 
     public function __construct(array $attributes = [])
     {

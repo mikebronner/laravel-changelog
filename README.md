@@ -3,3 +3,12 @@
 ![Changelog for Laravel masthead image.](https://repository-images.githubusercontent.com/189888584/d096b800-f298-11e9-977e-e6e3925132ae)
 
 Easily integrate and display your changelog in your app.
+
+## Version Support
+
+| Laravel | PHP      | Package |
+|---------|----------|---------|
+| 10.x    | 8.2+     | 1.x     |
+| 11.x    | 8.2+     | 1.x     |
+| 12.x    | 8.2+     | 1.x     |
+| 13.x    | 8.3+     | 1.x     |

@@ -1,0 +1,3 @@
+<?php
+
+// Base test configuration
