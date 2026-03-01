@@ -7,8 +7,9 @@
     ],
     "license": "MIT",
     "require": {
-        "illuminate/filesystem": "^10.0|^11.0",
-        "illuminate/support": "^10.0|^11.0",
+        "php": "^8.2",
+        "illuminate/filesystem": "^10.0|^11.0|^12.0",
+        "illuminate/support": "^10.0|^11.0|^12.0",
         "jenssegers/model": "^1.5",
         "spatie/laravel-markdown": "^2.4"
     },
