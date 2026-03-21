@@ -6,9 +6,8 @@ Easily integrate and display your changelog in your app.
 
 ## Version Support
 
-| Laravel | PHP      | Package |
-|---------|----------|---------|
-| 10.x    | 8.2+     | 1.x     |
-| 11.x    | 8.2+     | 1.x     |
-| 12.x    | 8.2+     | 1.x     |
-| 13.x    | 8.3+     | 1.x     |
+| Laravel | PHP      |
+|---------|----------|
+| 11.x    | 8.2+     |
+| 12.x    | 8.2+     |
+| 13.x    | 8.3+     |
