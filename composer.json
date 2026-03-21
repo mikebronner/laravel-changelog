@@ -8,10 +8,12 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "illuminate/filesystem": "^10.0|^11.0|^12.0",
-        "illuminate/support": "^10.0|^11.0|^12.0",
-        "jenssegers/model": "^1.5",
-        "spatie/laravel-markdown": "^2.4"
+        "illuminate/filesystem": "^11.0|^12.0|^13.0",
+        "illuminate/support": "^11.0|^12.0|^13.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0|^10.0|^11.0",
+        "pestphp/pest": "^3.0|^4.0"
     },
     "autoload": {
         "psr-4": {
@@ -26,7 +28,10 @@
         }
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
