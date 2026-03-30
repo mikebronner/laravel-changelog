@@ -1,26 +1,24 @@
-<?php namespace GeneaLabs\LaravelChangelog\Http\Controllers;
+<?php
+
+declare(strict_types=1);
+
+namespace GeneaLabs\LaravelChangelog\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Collection;
-use GeneaLabs\LaravelChangelog\Changelog;
-use GeneaLabs\LaravelChangelog\Entry;
 use Illuminate\View\View;
 
 class ChangelogController extends Controller
 {
-    public function index() : View
+    public function index(): View
     {
-        $entries = (new Changelog)->entries;
-
-        return view("laravel-changelog::changelog")
-            ->with(compact("entries"));
-        // return (new Changelog)
-        //     ->entries;
+        return view('laravel-changelog::changelog-grouped');
     }
 
-    public function show(string $version) : Entry
+    public function showMinorVersion(string $major, string $minor): View
     {
-        return (new Changelog)
-            ->find($version);
+        return view('laravel-changelog::changelog-grouped', [
+            'major' => $major,
+            'minor' => $minor,
+        ]);
     }
 }
