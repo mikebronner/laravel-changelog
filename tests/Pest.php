@@ -1,3 +1,3 @@
 <?php
 
-// Base test configuration
+uses(Tests\TestCase::class)->in(__DIR__);
