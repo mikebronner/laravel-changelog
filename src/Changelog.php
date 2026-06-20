@@ -83,6 +83,19 @@ class Changelog extends Model
             ->values();
     }
 
+    public function getGroupedByMinorVersionAttribute() : Collection
+    {
+        return $this->entries
+            ->groupBy(function (Entry $entry) {
+                $parts = explode('.', $entry->version);
+                $major = $parts[0] ?? '0';
+                $minor = $parts[1] ?? '0';
+
+                return "{$major}.{$minor}";
+            })
+            ->sortKeysDesc(SORT_NATURAL);
+    }
+
     public function getLatestVersionEntryAttribute() : Entry
     {
         return $this
